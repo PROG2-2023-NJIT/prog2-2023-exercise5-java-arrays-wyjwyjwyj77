@@ -7,8 +7,8 @@ package prog2.exercise5.flight.booking.system;
 
 
 
- import java.util.Scanner;
- import java.time.LocalDate;
+ //import java.util.Scanner;
+ //import java.time.LocalDate;
 
 
  /*enum TripSource
@@ -73,7 +73,8 @@ public class Main
         int size = 3;
        FlightBooking ee = new FlightBooking(size);
        ee.reserveTickets(size);
-    
+       
+
        /*  Scanner bookingScanner = new Scanner (System.in);
         System.out.println("The class you selected is:" );
         int bookingscanner =bookingScanner.nextInt();

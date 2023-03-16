@@ -69,9 +69,9 @@ public class FlightBooking
         return FlightBooking.a; }
     public void seta(String dd){
     FlightBooking.a = dd;}
-    public String getb(){
+    public static String getb(){
         return FlightBooking.b;}
-    public void setb(String z){
+    public static void setb(String z){
         FlightBooking.b = z;}
     public double getprice(){
         return FlightBooking.price;}
@@ -108,7 +108,7 @@ public class FlightBooking
     public int getTotalPassengers(){
                 return totalPassengers;}
     public void setTotalPassengers(int childPassengers,int adultPassengers){
-               FlightBooking.totalPassengers = childPassengers+adultPassengers;}
+               FlightBooking.totalPassengers = childPassengers + adultPassengers;}
     public LocalDate getDepartingDate(){
          return FlightBooking.departureDate;}
     public double getReturnTicketPrice(){
@@ -119,7 +119,7 @@ public class FlightBooking
         return FlightBooking.ticketNumber[a];}
 
    
-         public void setBookingClass(String str){
+         public static void setBookingClass(String str){
         {
            if(str.equals("1"))
            FlightBooking.bookingClass = BookingClass.FIRST;
@@ -131,7 +131,7 @@ public class FlightBooking
     }
 
 
-    public void setTripSource(String str3){
+    public static void setTripSource(String str3){
         if(str3.equals("1"))
         FlightBooking.tripSource = TripSource.NANJING;
         if(str3.equals("2"))
@@ -142,7 +142,7 @@ public class FlightBooking
         FlightBooking.tripSource = TripSource.HELSINKI;
      }
    
-     public void setSourceAirport(String str3){
+     public static void setSourceAirport(String str3){
         if(str3.equals("1"))
         FlightBooking.sourceAirport = SourceAirport.NANJING_Lukou_International_Airport;
         if(str3.equals("2"))
@@ -153,7 +153,7 @@ public class FlightBooking
         FlightBooking.sourceAirport = SourceAirport.HELSINKI_Airport;
     }
 
-    public void setDestinationAirport(String str2, String str3){
+    public static void setDestinationAirport(String str2, String str3){
         if(str3.equals("1"))
         FlightBooking.destinationAirport = DestinationAirport.NANJING_Lukou_International_Airport;
         if(str3.equals("2"))
@@ -164,7 +164,7 @@ public class FlightBooking
         FlightBooking.destinationAirport = DestinationAirport.HELSINKI_Airport;
     }
 
-    public void setTripType(String str2){
+    public static void setTripType(String str2){
         if(str2.equals("1"))
         FlightBooking.tripType = TripType.ONE_WAY;
         if(str2.equals("2")){
@@ -172,7 +172,7 @@ public class FlightBooking
         }
      }
 
-     public void setTripDestination(String str2, String str3){
+     public static void setTripDestination(String str2, String str3){
         if(str3.equals("1"))
         FlightBooking.tripDestination = TripDestination.NANJING ;
         if(str3.equals("2"))
@@ -217,8 +217,7 @@ public class FlightBooking
         return totalTicketPrice;}
     
         public double getDepartingTicketPrice(){
-            return departingTicketPrice;
-        }
+            return departingTicketPrice;}
         
         public void setDepartingTicketPrice(int childPassengers, int adultPassengers){
             if(tripSource.equals(TripSource.NANJING)&&tripDestination.equals(TripDestination.BEIJING)||tripSource.equals(TripSource.BEIJING)&&tripDestination.equals(TripDestination.NANJING)||tripSource.equals(TripSource.HELSINKI)&&tripDestination.equals(TripDestination.OULU)||tripSource.equals(TripSource.OULU)&&tripDestination.equals(TripDestination.HELSINKI)){
@@ -252,8 +251,34 @@ public class FlightBooking
             "Date of departure: " + departureDate + "\n" +
             "Date of return: " + returnDate + "\n" +
             "Total passengers: " + totalPassengers + "\n" +
-            "Total ticket price in Euros: " + totalTicketPrice;
-           }
+            "Total ticket price in Euros: " + totalTicketPrice;}
+
+            public void gety(String h1) {
+            }
+            public static String creatTnumber(int n){
+                String codes="";
+                Random r=new Random();
+                for(int i=0;i<4;i++){
+                    int num=r.nextInt(3);
+                    switch(num) {
+                    case 0:
+                    codes+=r.nextInt(10);
+                    break;
+                    case 1:
+                    char ch1=(char)(r.nextInt(26)+65);
+                        codes+=ch1;
+                        break;
+                    case 2:
+                    char ch2=(char)(r.nextInt(26)+97);
+                        codes+=ch2;
+                        break;
+                    }
+                }
+                return codes;
+            }
+
+
+
 
            public void reserveTickets(int size){
             String[] Name = new String[size];
@@ -273,13 +298,110 @@ public class FlightBooking
             Age[a] = input1.nextInt();
             setPassengerAge(a, Age[a]);
             }
+        
+        input1.close();
+        }
+       
+        public static void main (String[] args){
+        Scanner ssa =new Scanner(System.in);
+        System.out.println("Please select the ticket type：");
+        System.out.println("1.FIRST");
+        System.out.println("2.BUSINESS");
+        System.out.println("3.ECONOMY");
+        int sc1 = ssa.nextInt();
+        ssa.close();
+
+        String str ;
+        switch(sc1){
+        case 1:
+        str = "1";setBookingClass(str);getBookingClass();break;
+        case 2:
+        str = "2";setBookingClass(str);getBookingClass();break;
+        case 3:
+        str = "3";setBookingClass(str);getBookingClass();break;
         }
 
-        System.out.println("Thank you for booking your flight with " + company + "\n" + "You reserved a total of " + size + "\n" +"Here are the trip details for " + a + " passenger");
-        System.out.println("Ticket Number: " + ticketNumber + "\n" + "passenger full name:" + passengerFullName + "\n" + "passenger age:" + passengerAge + "\n" + "passenger gender:" + passengerGender + "\n" +
-        "From " + Source +"\n" + sourceAirport + "\n" + "To: " + destination + destinationAirport +"\n" + "Date of departure: " + departureDate + "\n" +"Date of return: " + returningDate + "\n" + "Total passengers: " + totalPassengers + "\n" +"Total ticket price in Euros: " + totalTicketPrice);
+        Scanner ssb = new Scanner(System.in);
+        System.out.println("Please choose whether to return：");
+        System.out.println("1.ONE_WAY");
+        System.out.println("2.RETURN");
+        int sc2 = ssb.nextInt();
+        ssb.close();
 
-       
+        String str2;
+        switch(sc2){
+        case 1:
+        str2 = "1";setTripType(str2);getTripType();break;
+        case 2:
+        str2 = "2";setTripType(str2);getTripType();break;
+        }
+
+       Scanner ssc = new Scanner(System.in);
+        System.out.println("Please select your destination：");
+        System.out.println("1.NANJING");
+        System.out.println("2.BEIJING");
+        System.out.println("3.OULU");
+        System.out.println("4.HELSINKI");
+        int sc3 = ssc.nextInt();
+        ssc.close();
+
+        String str3;
+        switch(sc3){
+        case 1:
+        str3 = "1";setTripSource(str3);setb(str3);getTripSource();setSourceAirport(str3);getsourceAirport();break;
+        case 2:
+        str3 = "2";setTripSource(str3);setb(str3);getTripSource();setSourceAirport(str3);getsourceAirport();break;
+        case 3:
+        str3 = "3";setTripSource(str3);setb(str3);getTripSource();setSourceAirport(str3);getsourceAirport();break;
+        case 4:
+        str3 = "4";setTripSource(str3);setb(str3);getTripSource();setSourceAirport(str3);getsourceAirport();break;
+        }
+
+        Scanner ssd = new Scanner(System.in);
+        System.out.println("Please select your return destination：");
+        System.out.println("1.NANJING");
+        System.out.println("2.BEIJING");
+        System.out.println("3.OULU");
+        System.out.println("4.HELSINKI");
+        int sc4 = ssd.nextInt();
+        ssd.close();
+
+        String rr = getb();
+        String str4;
+        switch(sc4){
+            case 1:
+            str4 = "1";setTripDestination(rr,str4);getTripDestination();setDestinationAirport(rr, str4);getDestinationAirport();break;
+            case 2:
+            str4 = "2";setTripDestination(rr,str4);getTripDestination();setDestinationAirport(rr, str4);getDestinationAirport();break;
+            case 3:
+            str4 = "3";setTripDestination(rr,str4);getTripDestination();setDestinationAirport(rr, str4);getDestinationAirport();break;
+            case 4:
+            str4 = "4";setTripDestination(rr,str4);getTripDestination();setDestinationAirport(rr, str4);getDestinationAirport();break;
+        }
+
+
+
+
+
+
+
+
+
+    }
+        private static void getDestinationAirport() {
+        }
+        private static void getTripDestination() {
+        }
+        private static void getsourceAirport() {
+        }
+        private static void getTripSource() {
+        }
+        private static void getTripType() {
+        }
+        private static void getBookingClass() {
+        }
+
+
         }
        /*  public class Place   {
             private String  TRIP_SOURCE  ;
