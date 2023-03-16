@@ -254,7 +254,7 @@ public class FlightBooking
             "Total passengers: " + totalPassengers + "\n" +
             "Total ticket price in Euros: " + totalTicketPrice;
            }
-/* */
+
            public void reserveTickets(int size){
             String[] Name = new String[size];
             String[] Gender = new String[size];
