@@ -388,19 +388,7 @@ public class FlightBooking
 
 
     }
-        private static void getDestinationAirport() {
-        }
-        private static void getTripDestination() {
-        }
-        private static void getsourceAirport() {
-        }
-        private static void getTripSource() {
-        }
-        private static void getTripType() {
-        }
-        private static void getBookingClass() {
-        }
-
+        
 
         }
        /*  public class Place   {
