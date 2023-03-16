@@ -379,7 +379,16 @@ public class FlightBooking
             str4 = "4";setTripDestination(rr,str4);getTripDestination();setDestinationAirport(rr, str4);getDestinationAirport();break;
         }
 
-
+        System.out.println("Thank you for booking your flight with " + 
+        company + "\n" + "You reserved a total of " + size + "\n" +"Here are the trip details for " + a + " passenger");
+        System.out.println(
+        "Ticket Number: " + ticketNumber + "\n" + "passenger full name:" + passengerFullName + "\n" + "passenger age:" +
+        passengerAge + "\n" + "passenger gender:" + passengerGender + "\n" +
+        "From " + Source +"\n" + sourceAirport + "\n" + "To: " + destination + destinationAirport +"\n" +
+        "Date of departure: " + departureDate + "\n" +
+        "Date of return: " + returningDate + "\n" +
+        "Total passengers: " + totalPassengers + "\n" +
+        "Total ticket price in Euros: " + totalTicketPrice);
 
 
 
