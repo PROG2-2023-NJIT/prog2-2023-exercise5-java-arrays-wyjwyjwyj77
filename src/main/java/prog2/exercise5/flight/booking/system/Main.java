@@ -65,7 +65,7 @@ public class Main
         System.out.println("ticketNumber=12345");
         System.out.println("Dear" + passengerFullName);
         System.out.println("Thank you for booking your flight with flightCompany.\n Following are the details of your booking and the trip:\n");
-        System.out.println("Ticket Number: ticketNumber\n");*/
+        System.outE.println("Ticket Number: ticketNumber\n");*/
 
 
 
@@ -127,7 +127,7 @@ public class Main
 }       private static void change(int tripDestination) {
     TripSource tripSource=tripSource.Nanjing;
     switch (tripDestination){
-        case 1:
+       // case 1:
         tripDestination= tripDestination.Nanjing;break;
         case 2:
         tripDestination= tripDestination.Beijing;break;
